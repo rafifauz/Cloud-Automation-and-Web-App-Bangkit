@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>HERA (admin)</title>
+    <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+    <div id="login_div" class="main-div">
+        <h3>HERA administrator</h3>
+        <input type="email" placeholder="Email..." id="email_field" />
+        <input type="password" placeholder="Password..." id="password_field" />
+
+        <button onclick="login()">Login to Account</button>
+    </div>
+
+    <div id="user_div" class="loggedin-div">
+        <h3>Welcome </h3>
+        <p id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
+        <button onClick="location.href='./laporan.html'">Laporan</button>
+        <button onClick="location.href='./users.html'" ">User</button>
+        <button onclick="logout() ">Logout</button>
+    </div>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js "></script>
+    <script src="database.js "></script>
+
+    <script src="index.js "></script>
+
+</body>
+
+</html>
