@@ -11,40 +11,38 @@
 <body>
     <div class="container">
         <header>
-            <h3>List Laporan</h3>
+            <h3>List story</h3>
             <button class="btn btn-home" onClick="location.href='./index.html'">Home</button>
         </header>
         <div class="table-wrapper">
             <table class="table-reports">
                 <tr>
-                    <th>Nama Pengirim</th>
-                    <th>NIK</th>
-                    <th>Nomer Telepon</th>
-                    <th>Tanggal Lahir</th>
-                    <th>Waktu Laporan</th>
-                    <th>Alamat</th>
-                    <th>Kategori</th>
-                    <th>Kronologi Kejadian</th>
+                    <th>Category</th>
+                    <th>Content</th>
+                    <th>Tautan Gambar</th>
+                    <th>Lokasi</th>
+                    <th>Waktu Upload</th>
+                    <th>User ID</th>
+                    <th>Like</th>
                 </tr>
             </table>
-            <button class="btn btn-add">Add Laporan</button>
+            <button class="btn btn-add">Add story</button>
         </div>
         <!-- Add Modal -->
         <div class="add-modal modal-wrapper">
             <div class="modal">
                 <div class="modal-header">
-                    <h3>Add New Laporan</h3>
+                    <h3>Add New story</h3>
                 </div>
                 <div class="modal-body">
                     <form class="form" autocomplete="off">
-                        <input type="text" name="fullname" placeholder="First Name">
-                        <input type="text" name="nik" placeholder="NIK">
-                        <input type="number" name="phoneNumber" placeholder="Nomer Telepon">
-                        <input type="date" name="ttl" placeholder="Tanggal Lahir">
-                        <input type="date" name="uploadTime" placeholder="Waktu Laporan">
-                        <input type="text" name="address" placeholder="Alamat">
                         <input type="text" name="category" placeholder="Kategori">
-                        <input type="text" name="description" placeholder="Kronologi Kejadian">
+                        <input type="text" name="content" placeholder="Konten">
+                        <input type="text" name="imgContent" placeholder="Tautan Gambar (URL)">
+                        <input type="text" name="location" placeholder="Lokasi">
+                        <input type="date" name="timeUpload" placeholder="Waktu Upload">
+                        <input type="text" name="userID" placeholder="User ID">
+                        <input type="text" name="like" placeholder="Like">
                         <button class="btn btn-modal">Submit</button>
                     </form>
                 </div>
@@ -55,18 +53,17 @@
         <div class="edit-modal modal-wrapper">
             <div class="modal">
                 <div class="modal-header">
-                    <h3>Edit Laporan</h3>
+                    <h3>Edit story</h3>
                 </div>
                 <div class="modal-body">
                     <form class="form" autocomplete="off">
-                        <input type="text" name="fullname" placeholder="First Name">
-                        <input type="text" name="nik" placeholder="NIK">
-                        <input type="number" name="phoneNumber" placeholder="Nomer Telepon">
-                        <input type="date" name="ttl" placeholder="Tanggal Lahir">
-                        <input type="date" name="uploadTime" placeholder="Waktu Laporan">
-                        <input type="text" name="address" placeholder="Alamat">
                         <input type="text" name="category" placeholder="Kategori">
-                        <input type="text" name="description" placeholder="Kronologi Kejadian">
+                        <input type="text" name="content" placeholder="Konten">
+                        <input type="text" name="imgContent" placeholder="Tautan Gambar (URL)">
+                        <input type="text" name="location" placeholder="Lokasi">
+                        <input type="date" name="timeUpload" placeholder="Waktu Upload">
+                        <input type="text" name="userID" placeholder="User ID">
+                        <input type="text" name="like" placeholder="Like">
                         <button class="btn btn-modal">Submit</button>
                     </form>
                 </div>
@@ -83,7 +80,7 @@
 
     <script src="database.js "></script>
 
-    <script src="./laporan.js"></script>
+    <script src="./story.js"></script>
 </body>
 
 </html>

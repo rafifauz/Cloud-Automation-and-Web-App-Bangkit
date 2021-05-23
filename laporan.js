@@ -17,14 +17,14 @@ let id;
 const renderUser = doc => {
     const tr = `
     <tr data-id='${doc.id}'>
-      <td>${doc.data().namaPengirim}</td>
-      <td>${doc.data().NIK}</td>
-      <td>${doc.data().nomerTelepon}</td>
-      <td>${doc.data().tanggalLahir}</td>
-      <td>${doc.data().waktuLaporan}</td>
-      <td>${doc.data().Alamat}</td>
-      <td>${doc.data().Kategori}</td>
-      <td>${doc.data().kronologiKejadian}</td>
+      <td>${doc.data().fullname}</td>
+      <td>${doc.data().nik}</td>
+      <td>${doc.data().phoneNumber}</td>
+      <td>${doc.data().ttl}</td>
+      <td>${doc.data().uploadTime}</td>
+      <td>${doc.data().address}</td>
+      <td>${doc.data().category}</td>
+      <td>${doc.data().description}</td>
       <td>
         <button class="btn btn-edit">Edit</button>
         <button class="btn btn-delete">Delete</button>
@@ -39,20 +39,20 @@ const renderUser = doc => {
         editModal.classList.add('modal-show');
 
         id = doc.id;
-        editModalForm.namaPengirim.value = doc.data().namaPengirim;
-        editModalForm.NIK.value = doc.data().NIK;
-        editModalForm.nomerTelepon.value = doc.data().nomerTelepon;
-        editModalForm.tanggalLahir.value = doc.data().tanggalLahir;
-        editModalForm.waktuLaporan.value = doc.data().waktuLaporan;
-        editModalForm.Alamat.value = doc.data().Alamat;
-        editModalForm.Kategori.value = doc.data().Kategori;
-        editModalForm.kronologiKejadian.value = doc.data().kronologiKejadian;
+        editModalForm.fullname.value = doc.data().fullname;
+        editModalForm.nik.value = doc.data().nik;
+        editModalForm.phoneNumber.value = doc.data().phoneNumber;
+        editModalForm.ttl.value = doc.data().ttl;
+        editModalForm.uploadTime.value = doc.data().uploadTime;
+        editModalForm.address.value = doc.data().address;
+        editModalForm.category.value = doc.data().category;
+        editModalForm.description.value = doc.data().description;
     });
 
     // Click delete report
     const btnDelete = document.querySelector(`[data-id='${doc.id}'] .btn-delete`);
     btnDelete.addEventListener('click', () => {
-        db.collection('laporan').doc(`${doc.id}`).delete().then(() => {
+        db.collection('report').doc(`${doc.id}`).delete().then(() => {
             console.log('Document succesfully deleted!');
         }).catch(err => {
             console.log('Error removing document', err);
@@ -65,14 +65,14 @@ const renderUser = doc => {
 btnAdd.addEventListener('click', () => {
     addModal.classList.add('modal-show');
 
-    addModalForm.namaPengirim.value = '';
-    addModalForm.NIK.value = '';
-    addModalForm.nomerTelepon.value = '';
-    addModalForm.tanggalLahir.value = '';
-    addModalForm.waktuLaporan.value = '';
-    addModalForm.Alamat.value = '';
-    addModalForm.Kategori.value = '';
-    addModalForm.kronologiKejadian.value = '';
+    addModalForm.fullname.value = '';
+    addModalForm.nik.value = '';
+    addModalForm.phoneNumber.value = '';
+    addModalForm.ttl.value = '';
+    addModalForm.uploadTime.value = '';
+    addModalForm.address.value = '';
+    addModalForm.category.value = '';
+    addModalForm.description.value = '';
 });
 
 // User click anyware outside the modal
@@ -86,14 +86,14 @@ window.addEventListener('click', e => {
 });
 
 // Get all reports
-// db.collection('laporan').get().then(querySnapshot => {
+// db.collection('report').get().then(querySnapshot => {
 //   querySnapshot.forEach(doc => {
 //     renderUser(doc);
 //   })
 // });
 
 // Real time listener
-db.collection('laporan').onSnapshot(snapshot => {
+db.collection('report').onSnapshot(snapshot => {
     snapshot.docChanges().forEach(change => {
         if (change.type === 'added') {
             renderUser(change.doc);
@@ -115,15 +115,15 @@ db.collection('laporan').onSnapshot(snapshot => {
 // Click submit in add modal
 addModalForm.addEventListener('submit', e => {
     e.preventDefault();
-    db.collection('laporan').add({
-        namaPengirim: addModalForm.namaPengirim.value,
-        NIK: addModalForm.NIK.value,
-        nomerTelepon: addModalForm.nomerTelepon.value,
-        tanggalLahir: addModalForm.tanggalLahir.value,
-        waktuLaporan: addModalForm.waktuLaporan.value,
-        Alamat: addModalForm.Alamat.value,
-        Kategori: addModalForm.Kategori.value,
-        kronologiKejadian: addModalForm.kronologiKejadian.value,
+    db.collection('report').add({
+        fullname: addModalForm.fullname.value,
+        nik: addModalForm.nik.value,
+        phoneNumber: addModalForm.phoneNumber.value,
+        ttl: addModalForm.ttl.value,
+        uploadTime: addModalForm.uploadTime.value,
+        address: addModalForm.address.value,
+        category: addModalForm.category.value,
+        description: addModalForm.description.value,
     });
     modalWrapper.classList.remove('modal-show');
 });
@@ -131,15 +131,15 @@ addModalForm.addEventListener('submit', e => {
 // Click submit in edit modal
 editModalForm.addEventListener('submit', e => {
     e.preventDefault();
-    db.collection('laporan').doc(id).update({
-        namaPengirim: editModalForm.namaPengirim.value,
-        NIK: editModalForm.NIK.value,
-        nomerTelepon: editModalForm.nomerTelepon.value,
-        tanggalLahir: editModalForm.tanggalLahir.value,
-        waktuLaporan: editModalForm.waktuLaporan.value,
-        Alamat: editModalForm.Alamat.value,
-        Kategori: editModalForm.Kategori.value,
-        kronologiKejadian: editModalForm.kronologiKejadian.value,
+    db.collection('report').doc(id).update({
+        fullname: editModalForm.fullname.value,
+        nik: editModalForm.nik.value,
+        phoneNumber: editModalForm.phoneNumber.value,
+        ttl: editModalForm.ttl.value,
+        uploadTime: editModalForm.uploadTime.value,
+        address: editModalForm.address.value,
+        category: editModalForm.category.value,
+        description: editModalForm.description.value,
 
 
     });
