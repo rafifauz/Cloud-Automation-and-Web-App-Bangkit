@@ -11,6 +11,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 
             var email_id = user.email;
             document.getElementById("user_para").innerHTML = "User : " + email_id;
+            sessionStorage.setItem("EMAIL", email_id);
 
         }
 
@@ -42,4 +43,6 @@ function login() {
 
 function logout() {
     firebase.auth().signOut();
+    sessionStorage.setItem("EMAIL", 'null');
+
 }

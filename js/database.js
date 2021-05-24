@@ -1,7 +1,7 @@
 var firebaseConfig = {
     apiKey: "AIzaSyDET1lBkmp5HuKb5jXgyPD2nD8qXZ5IXt4",
     authDomain: "process.env.authDomain",
-    projectId: "process.env.projectId",
+    projectId: "hera1234",
     storageBucket: "process.env.storageBucket",
     messagingSenderId: "process.env.messagingSenderId",
     appId: "process.env.appId"
