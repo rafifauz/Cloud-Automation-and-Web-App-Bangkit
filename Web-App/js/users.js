@@ -22,12 +22,12 @@ if (email_user != "a@a.com") {
     const renderUser = doc => {
         const tr = `
     <tr data-id='${doc.id}'>
-      <td>${doc.data().FullName}</td>
-      <td>${doc.data().NIK}</td>
-      <td>${doc.data().PhoneNumber}</td>
-      <td>${doc.data().DateOfBirth}</td>
-      <td>${doc.data().Address}</td>
-      <td>${doc.data().Username}</td>
+      <td>${doc.data().fullName}</td>
+      <td>${doc.data().nik}</td>
+      <td>${doc.data().phoneNumber}</td>
+      <td>${doc.data().dateOfBirth}</td>
+      <td>${doc.data().address}</td>
+      <td>${doc.data().username}</td>
       <td>
         <button class="btn btn-edit">Edit</button>
         <button class="btn btn-delete">Delete</button>
@@ -42,11 +42,11 @@ if (email_user != "a@a.com") {
             editModal.classList.add('modal-show');
 
             id = doc.id;
-            editModalForm.FullName.value = doc.data().FullName;
-            editModalForm.NIK.value = doc.data().NIK;
-            editModalForm.PhoneNumber.value = doc.data().PhoneNumber;
-            editModalForm.DateOfBirth.value = doc.data().DateOfBirth;
-            editModalForm.Address.value = doc.data().Address;
+            editModalForm.fullName.value = doc.data().fullName;
+            editModalForm.nik.value = doc.data().nik;
+            editModalForm.phoneNumber.value = doc.data().phoneNumber;
+            editModalForm.dateOfBirth.value = doc.data().dateOfBirth;
+            editModalForm.address.value = doc.data().address;
 
 
 
@@ -68,12 +68,12 @@ if (email_user != "a@a.com") {
     btnAdd.addEventListener('click', () => {
         addModal.classList.add('modal-show');
 
-        addModalForm.FullName.value = '';
-        addModalForm.NIK.value = '';
-        addModalForm.PhoneNumber.value = '';
-        addModalForm.DateOfBirth.value = '';
-        addModalForm.Address.value = '';
-        addModalForm.Username.value = '';
+        addModalForm.fullName.value = '';
+        addModalForm.nik.value = '';
+        addModalForm.phoneNumber.value = '';
+        addModalForm.dateOfBirth.value = '';
+        addModalForm.address.value = '';
+        addModalForm.username.value = '';
     });
 
     // User click anyware outside the modal
@@ -117,12 +117,12 @@ if (email_user != "a@a.com") {
     addModalForm.addEventListener('submit', e => {
         e.preventDefault();
         db.collection('users').add({
-            FullName: addModalForm.FullName.value,
-            NIK: addModalForm.NIK.value,
-            PhoneNumber: addModalForm.PhoneNumber.value,
-            DateOfBirth: addModalForm.DateOfBirth.value,
-            Address: addModalForm.Address.value,
-            Username: addModalForm.Username.value,
+            fullName: addModalForm.fullName.value,
+            nik: addModalForm.nik.value,
+            phoneNumber: addModalForm.phoneNumber.value,
+            dateOfBirth: addModalForm.dateOfBirth.value,
+            address: addModalForm.address.value,
+            username: addModalForm.username.value,
         });
         modalWrapper.classList.remove('modal-show');
     });
@@ -131,11 +131,11 @@ if (email_user != "a@a.com") {
     editModalForm.addEventListener('submit', e => {
         e.preventDefault();
         db.collection('users').doc(id).update({
-            FullName: editModalForm.FullName.value,
-            NIK: editModalForm.NIK.value,
-            PhoneNumber: editModalForm.PhoneNumber.value,
-            DateOfBirth: editModalForm.DateOfBirth.value,
-            Address: editModalForm.Address.value,
+            fullName: editModalForm.fullName.value,
+            nik: editModalForm.nik.value,
+            phoneNumber: editModalForm.phoneNumber.value,
+            dateOfBirth: editModalForm.dateOfBirth.value,
+            address: editModalForm.address.value,
         });
         editModal.classList.remove('modal-show');
 
